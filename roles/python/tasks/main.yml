@@ -1,0 +1,35 @@
+- name: Install Python
+  pacman:
+    name: python
+    state: present
+
+- name: Install pyenv dependencies
+  pacman:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - git
+    - make
+    - gcc
+    - zlib-devel
+    - bzip2
+    - bzip2-devel
+    - readline-devel
+    - sqlite
+    - sqlite-devel
+
+- name: Clone pyenv repository
+  git:
+    repo: https://github.com/pyenv/pyenv.git
+    dest: /usr/local/pyenv
+
+
+#- name: Add pyenv to bashrc
+#  lineinfile:
+#    path: ~/.bashrc
+#    line: 'export PATH="/usr/local/pyenv/bin:$PATH"'
+
+#- name: Add pyenv init to bashrc
+#  lineinfile:
+#    path: ~/.bashrc
+#    line: 'eval "$(pyenv init -)"'

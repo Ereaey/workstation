@@ -1,5 +1,14 @@
 - name: Install Docker
   pacman:
-    name:
-      - docker
+    name: docker
     state: present
+
+- name: Start and enable Docker service
+  service:
+    name: docker
+    state: started
+    enabled: true
+
+- name: Install Docker Compose
+  pip:
+    name: docker-compose
