@@ -6,6 +6,7 @@
     url: https://github.com/vinceliuice/Colloid-gtk-theme/archive/master.zip
     dest: /tmp/colloid.zip
 - name: Extract Colloid theme
+  become: true
   unarchive:
     src: /tmp/colloid.zip
     dest: /usr/share/themes
