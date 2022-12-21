@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install JetBrains Toolbox from AUR
+      command: yaourt -S jetbrains-toolbox
+      creates: /opt/jetbrains-toolbox
+      become: true

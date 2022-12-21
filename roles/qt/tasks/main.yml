@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install Qt
+      pacman:
+        name:
+          - qt5-base
+          - qt5-webengine
+        state: present

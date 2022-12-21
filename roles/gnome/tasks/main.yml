@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install Dash to Panel extension
+      command: gnome-extensions install dash-to-panel@jderose9.github.com
+    - name: Enable Dash to Panel extension
+      command: gnome-extensions enable dash-to-panel@jderose9.github.com
+    - name: Set dock position to left
+      command: gsettings set org.gnome.shell.extensions.dash-to-panel dock-position BOTTOM
+    - name: Download Colloid theme
+      get_url:
+        url: https://github.com/vinceliuice/Colloid-gtk-theme/archive/master.zip
+        dest: /tmp/colloid.zip
+    - name: Extract Colloid theme
+      unarchive:
+        src: /tmp/colloid.zip
+        dest: /usr/share/themes
+        remote_src: true
+        creates: /usr/share/themes/Colloid-gtk-theme-master

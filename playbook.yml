@@ -1,0 +1,8 @@
+---
+- hosts: all
+  roles:
+    - terminal
+    - gnome
+    - chrome
+    - qt
+    - jetbrains
