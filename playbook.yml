@@ -3,6 +3,7 @@
   roles:
     - system
     - docker
+    - python
     - gnome
     - chrome
     - qt
