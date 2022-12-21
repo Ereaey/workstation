@@ -1,9 +1,5 @@
----
-- hosts: all
-  become: true
-  tasks:
-    - name: Install Google Chrome
-      pacman:
-        name:
-          - google-chrome
-        state: present
+- name: Install Google Chrome
+  pacman:
+    name:
+      - google-chrome
+    state: present

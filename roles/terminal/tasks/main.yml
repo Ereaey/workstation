@@ -1,20 +1,16 @@
----
-- hosts: all
-  become: true
-  tasks:
-    - name: Install dependencies
-      pacman:
-        name:
-          - nushell
-          - alacritty
-          - starship
-          - zellij
-        state: present
-    - name: Set Alacritty as default terminal emulator
-      command: gsettings set org.gnome.desktop.default-applications.terminal exec alacritty
-    - name: Configure Zellij theme
-      shell: zellij config theme Nord
-    - name: Configure NuShell to use Starship
-      shell: |
-        nush > ~/.config/nush/init.nush
-        echo 'use starship' >> ~/.config/nush/init.nush
+- name: Install dependencies
+  pacman:
+    name:
+      - nushell
+      - alacritty
+      - starship
+      - zellij
+    state: present
+- name: Set Alacritty as default terminal emulator
+  command: gsettings set org.gnome.desktop.default-applications.terminal exec alacritty
+- name: Configure Zellij theme
+  shell: zellij config theme Nord
+- name: Configure NuShell to use Starship
+  shell: |
+    nush > ~/.config/nush/init.nush
+    echo 'use starship' >> ~/.config/nush/init.nush
