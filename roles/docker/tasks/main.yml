@@ -1,4 +1,5 @@
 - name: Install Docker
+  become: true
   pacman:
     name: docker
     state: present
@@ -9,12 +10,14 @@
     group: "docker"
     append: yes
 
-- name: Start and enable Docker service
-  service:
-    name: docker
-    state: started
-    enabled: true
+#- name: Start and enable Docker service
+#  service:
+#    name: docker
+#    state: started
+#    enabled: true
 
-- name: Install Docker Compose
-  pip:
-    name: docker-compose
+- name: Install docker-compose from official github repo
+  get_url:
+    url : https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64
+    dest: /usr/local/bin/docker-compose
+    mode: 'u+x,g+x'

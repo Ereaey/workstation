@@ -1,8 +1,10 @@
 - name: Install Python & Pyenv
+  become: true
   pacman:
     name:
       - python
       - pyenv
+      - python-pip
     state: present
 
 #- name: Add pyenv to bashrc

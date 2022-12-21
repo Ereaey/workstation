@@ -2,3 +2,30 @@
   become: true
   community.general.pacman:
     update_cache: true
+
+- name: Install common
+  become: true
+  pacman:
+    name:
+      - base-devel
+      - git
+    state: present
+
+- name: Create yay directory
+  become: yes
+  file:
+    path: "/opt/yay"
+    state: directory
+    mode: 0755
+
+- name: Clone yay
+  git:
+    repo: https://aur.archlinux.org/yay-bin.git
+    dest: "/opt/yay"
+    update: true
+
+- name: Build and install yay
+  command:
+    chdir: "/opt/yay"
+    cmd: "makepkg -sfi --noconfirm"
+    creates: /usr/bin/yay

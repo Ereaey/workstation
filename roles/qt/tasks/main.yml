@@ -1,4 +1,5 @@
 - name: Install Qt
+  become: true
   pacman:
     name:
       - qt5-base

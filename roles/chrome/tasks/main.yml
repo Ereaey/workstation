@@ -1,5 +1,6 @@
 - name: Install Google Chrome
-  pacman:
-    name:
-      - google-chrome
-    state: present
+  command: /usr/bin/yay -S google-chrome --noconfirm
+
+- name: Google chrome version
+  command:
+    cmd: "google-chrome-stable --version"

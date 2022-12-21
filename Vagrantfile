@@ -8,7 +8,6 @@ Vagrant.configure("2") do |config|
   end
   config.vm.synced_folder ".", "/vagrant", disabled: true
   config.vm.provision "ansible" do |ansible|
-    ansible.become = true
     ansible.playbook = "playbook.yml"
   end
 end

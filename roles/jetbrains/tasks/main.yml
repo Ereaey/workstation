@@ -1,8 +1,2 @@
-- name: Install Yaourt
-  pacman:
-    name: yaourt
-    state: present
 - name: Install JetBrains Toolbox
-  command: yaourt -S jetbrains-toolbox
-  args:
-    creates: /opt/jetbrains-toolbox
+  command: /usr/bin/yay -S jetbrains-toolbox --noconfirm
