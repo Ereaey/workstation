@@ -3,6 +3,7 @@
     name:
       - yaourt
     state: present
+
 - name: Install JetBrains Toolbox from AUR
   command: yaourt -S jetbrains-toolbox
   creates: /opt/jetbrains-toolbox
