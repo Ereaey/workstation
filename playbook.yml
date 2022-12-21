@@ -2,8 +2,8 @@
 - hosts: all
   roles:
     - system
-    - docker
     - python
+    - docker
     - gnome
     - chrome
     - qt
